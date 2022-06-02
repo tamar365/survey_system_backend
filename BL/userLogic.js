@@ -4,20 +4,21 @@ const jwt = require("jsonwebtoken");
 
 
 async function createUser (input) {
-    console.log("🚀 ~ file: userLogic.js ~ line 7 ~ createUser ~ input", input)
     const userAlreadyExist = await user.readOne(input.username);
+    console.log("🚀 ~ file: userLogic.js ~ line 9 ~ createUser ~ userAlreadyExist", userAlreadyExist)
     if (userAlreadyExist) {
         return ({message: "user name already exists"});
-    }
-    const hashedPassword = await bcrypt.hash(input.password, 10);
-    const newUser = {
-      username:input.username, password:hashedPassword
-    }
-    console.log("🚀 ~ file: userLogic.js ~ line 16 ~ createUser ~ newUser", newUser)
-    const userFromDB = await user.create(newUser)
-    console.log("🚀 ~ file: userLogic.js ~ line 17 ~ createUser ~ userFromDB", userFromDB)
+    }  
+      const hashedPassword = await bcrypt.hash(input.password, 10);
+      const newUser = {
+        username:input.username, password:hashedPassword
+      }
+      console.log("🚀 ~ file: userLogic.js ~ line 16 ~ createUser ~ newUser", newUser)
+      const userFromDB = await user.create(newUser)
+      console.log("🚀 ~ file: userLogic.js ~ line 17 ~ createUser ~ userFromDB", userFromDB)
+      
+      return userFromDB.username;
     
-    return userFromDB.username;
 };
 
 async function loginUser (userInput) {
