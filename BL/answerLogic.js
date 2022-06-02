@@ -13,7 +13,6 @@ async function getAnswersByFilter(input) {
 }
 
 async function createAnswer(input) {
-  console.log("🚀 ~ file: answerLogic.js ~ line 16 ~ createAnswer ~ input", input)
   return await answer.create(input);
 }
 

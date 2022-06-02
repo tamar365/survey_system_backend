@@ -1,33 +1,3 @@
-// const survey = require('../models/survey');
-
-// async function read(filter, proj) {
-//     return await survey.find(filter, proj)
-// }
-
-// async function readOne(idSurvey) {
-//     return await survey.findOne({id: idSurvey})
-// }
-
-// async function create(req) {
-//     return await new survey(
-//         {
-//             surveyName: req.body.survey,
-//             id: req.body.id,
-//         })
-//         .save();
-// }
-
-// async function update(id, updateSurvey) {
-//     return await survey.find({_id:id}).update(id, updateSurvey)
-// }
-
-// async function del(idSurvey) {
-//     return await survey.deleteOne({_id: idSurvey})
-// }
-
-// module.exports = {read, readOne, create, update, del};
-
-
 const survey = require("../models/survey");
 
 async function read(filter, proj) {

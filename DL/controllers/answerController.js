@@ -1,8 +1,6 @@
 const answer = require("../models/answer");
 
 async function read() {
-  const result = await answer.find();
-  console.log("🚀 ~ file: answerController.js ~ line 5 ~ read ~ result", result)
   return await answer.find();
 }
 
@@ -15,7 +13,6 @@ async function readOneAndPopulate(filter, proj, populate) {
 }
 
 async function create(newAnswers) {
-  // console.log("🚀 ~ file: answerController.js ~ line 16 ~ create ~ newAnswers", newAnswers)
   return await (new answer({
     firstName:newAnswers.firstName,
     lastName:newAnswers.lastName,

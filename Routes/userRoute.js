@@ -4,7 +4,6 @@ const userLogic = require("../BL/userLogic");
 
 
 router.post("/register", async (req, res) => {
-  console.log(req.body)
   try {
     res.json(await userLogic.createUser(req.body))
     
@@ -14,7 +13,6 @@ router.post("/register", async (req, res) => {
 })
 
 router.post("/login", async (req, res) => {
-  console.log("🚀 ~ file: userRoute.js ~ line 14 ~ router.post ~ req", req.body)
   try{
     const result = await userLogic.loginUser(req.body)
    
