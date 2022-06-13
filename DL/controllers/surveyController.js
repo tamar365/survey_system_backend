@@ -1,19 +1,22 @@
 const survey = require("../models/survey");
 
-async function read(filter, proj) {
-  return await survey.find(filter, proj);
+async function read(filter) {
+  console.log("🚀 ~ file: surveyController.js ~ line 4 ~ read ~ filter", filter)
+  return await survey.find({createBy:filter});
 }
 
 async function readOne(filter, proj) {
-  return await survey.findOne(filter, proj);
+  console.log("🚀 ~ file: surveyController.js ~ line 9 ~ readOne ~ filter", filter)
+  return await survey.findOne({_id:filter});
 }
 
 async function readOneAndPopulate(filter, proj, populate) {
   return await survey.findOne(filter, proj).populate(populate);
 }
 
-async function create(newSurvey) {
-  return await survey.create(newSurvey);
+async function create(req) {
+  console.log("🚀 ~ file: surveyController.js ~ line 17 ~ create ~ req", req.body, req.user)
+  return await (new survey({title:req.body.title, questions:req.body.questions, createdBy:req.user._id}).save());
 }
 
 async function update(id, updatedSurvey) {

@@ -1,11 +1,14 @@
 const survey = require("../DL/controllers/surveyController");
 
-async function getSurveys(req) {
-  return await survey.read(req);
+async function getSurveys(user) {
+  console.log("🚀 ~ file: surveyLogic.js ~ line 4 ~ getSurveys ~ user", user._id)
+  return await survey.read(user._id);
 }
 
-async function getSurvey(req) {
-  return await survey.readOne(req);
+async function getSurvey(id) {
+console.log("🚀 ~ file: surveyLogic.js ~ line 9 ~ getSurvey ~ id", id)
+  
+  return await survey.readOne(id);
 }
 
 async function getSurveysByFilter(req) {
@@ -13,7 +16,12 @@ async function getSurveysByFilter(req) {
 }
 
 async function createSurvey(req) {
-  return await survey.create(req);
+  console.log("🚀 ~ file: surveyLogic.js ~ line 17 ~ createSurvey ~ req", req.body)
+  const newSurvey = await survey.create(req);
+  console.log("🚀 ~ file: surveyLogic.js ~ line 19 ~ createSurvey ~ newSurvey", newSurvey)
+  // newSurvey.questions.push(req.body.data._id)
+  // newSurvey.save();
+  return newSurvey;
 }
 
 async function updateSurvey(req) {

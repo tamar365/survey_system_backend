@@ -32,9 +32,11 @@ router.delete('/deleteanswer', authJWT, async (req,res) => {
     };
 });
 
-router.get('/', async (req,res) => {
+router.get('/:idOfSurvey', async (req,res) => {
+    console.log("🚀 ~ file: answerRoute.js ~ line 36 ~ router.get ~ req.params", req.params)
     try {
-        const answers = await answerLogic.getAnswers();
+        const answers = await answerLogic.getAnswers(req.params.idOfSurvey);
+        console.log("🚀 ~ file: answerRoute.js ~ line 39 ~ router.get ~ answers", answers)
         res.send(answers);
     } catch (err) {
         res.send({code:400, message: err.message || err});

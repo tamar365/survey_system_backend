@@ -10,6 +10,7 @@ async function readOne(input) {
 }
 
 async function create(newUser) {    
+    console.log("🚀 ~ file: userController.js ~ line 13 ~ create ~ newUser", newUser)
     return await (new user({username:newUser.username, password:newUser.password}).save())
 }
 

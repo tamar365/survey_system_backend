@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userLogic = require("../BL/userLogic");
-
+const authJWT = require("../Middleware/authentication");
 
 router.post("/register", async (req, res) => {
   try {
@@ -13,6 +13,7 @@ router.post("/register", async (req, res) => {
 })
 
 router.post("/login", async (req, res) => {
+  console.log("🚀 ~ file: userRoute.js ~ line 16 ~ router.post ~ req", req.body)
   try{
     const result = await userLogic.loginUser(req.body)
    
@@ -27,6 +28,14 @@ router.post("/login", async (req, res) => {
   }
 })
 
+
+// router.get("/getUserAndSurveys", async (req, res) => {
+//   try{
+//   res.send(await userLogic.getUserAndSurveys(req.user._id))
+//   }catch(err){
+//     res.send({dtatus:400, message:err.message || err})
+//   }
+// })
 
 router.get("/getAllUsers", async (req, res) => {
   try {

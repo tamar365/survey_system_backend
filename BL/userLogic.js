@@ -19,6 +19,7 @@ async function createUser (input) {
 };
 
 async function loginUser (userInput) {
+console.log("🚀 ~ file: userLogic.js ~ line 22 ~ loginUser ~ userInput", userInput)
   
   if (userInput.username && userInput.password) {
       let isValidLogin = false;
@@ -48,6 +49,11 @@ async function loginUser (userInput) {
 async function getUsers(){
   const users = await user.read();
   return users;
+}
+
+async function getUserAndSurveys(id){
+  const userWithHisSurvey = await user.readOne(id);
+  return userWithHisSurvey;
 }
 
 module.exports = {createUser, loginUser, getUsers};

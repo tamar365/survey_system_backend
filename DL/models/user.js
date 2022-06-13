@@ -17,6 +17,10 @@ const userSchema = new mongoose.Schema(
       unique: true,
       // uniqueCaseInsensitive: true,
     },
+    // surveys:
+    // {type: Array,
+    // type: mongoose.Schema.Types.ObjectId, ref: 'Survey'},
+
     // isAdmin: {
     //     type:Boolean,
     //     default: false

@@ -1,7 +1,7 @@
 const answer = require("../DL/controllers/answerController");
 
-async function getAnswers() {
-  return await answer.read();
+async function getAnswers(id) {
+  return await answer.read(id);
 }
 
 async function getAnswer(input) {

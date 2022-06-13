@@ -10,6 +10,7 @@ const answerSchema = new mongoose.Schema(
        },
        scaleAnswer: Number,
        openAnswer: String,
+       idOfSurvey: String
      }
 
 

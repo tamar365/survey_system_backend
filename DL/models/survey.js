@@ -2,26 +2,31 @@ const mongoose = require("mongoose");
 
 const surveySchema = new mongoose.Schema(
   {
-    description: {
+    title: {
       type: String,
       required: true,
     },
-    createBy: { 
+    createdBy: { 
       type: mongoose.SchemaTypes.ObjectId, 
-      ref: "User" 
+      ref: "User",
+      required: true, 
     },
     questions:{
         type: Array,
-        createBy: {type: mongoose.SchemaTypes.ObjectId, ref: "User"}
+        // createdBy: {type: mongoose.SchemaTypes.ObjectId, ref: "Question"}
     },
-    answers:{
-        type: Array,
-        createBy: {type: mongoose.SchemaTypes.ObjectId, ref: "Answer"},
-    },
-    linkToSurvey: {
-        type: String, 
-        required: true
-    },     
+    answers: [{
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "Answer"
+    }]
+    // answers:{
+    //     type: Array,
+    //     createdBy: {type: mongoose.SchemaTypes.ObjectId, ref: "Survey"},
+    // },
+    // linkToSurvey: {
+    //     type: String, 
+    //     // required: true
+    // },     
   },
   { timestamps: true }
 );
