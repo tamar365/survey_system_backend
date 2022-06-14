@@ -2,7 +2,6 @@ const user = require("../DL/controllers/userController");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-
 async function createUser (input) {
     const userAlreadyExist = await user.readOne(input.username);
     
@@ -18,9 +17,7 @@ async function createUser (input) {
       return userFromDB.username;
 };
 
-async function loginUser (userInput) {
-console.log("🚀 ~ file: userLogic.js ~ line 22 ~ loginUser ~ userInput", userInput)
-  
+async function loginUser (userInput) {  
   if (userInput.username && userInput.password) {
       let isValidLogin = false;
       let existsUser = await user.readOne(userInput.username);
@@ -45,7 +42,6 @@ console.log("🚀 ~ file: userLogic.js ~ line 22 ~ loginUser ~ userInput", userI
     }
 };
 
-
 async function getUsers(){
   const users = await user.read();
   return users;
@@ -56,4 +52,4 @@ async function getUserAndSurveys(id){
   return userWithHisSurvey;
 }
 
-module.exports = {createUser, loginUser, getUsers};
+module.exports = {createUser, loginUser, getUsers, getUserAndSurveys};

@@ -27,4 +27,5 @@ async function del(id) {
     { new: true }
   );
 }
+
 module.exports = {read, readOne, readOneAndPopulate, create, update, del};

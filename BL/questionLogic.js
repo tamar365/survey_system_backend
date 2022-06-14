@@ -24,5 +24,4 @@ async function deleteQuestion(req) {
   return await question.del(req);
 }
 
-
 module.exports = { getQuestions, getQuestion, getQuestionsByFilter, createQuestion, updateQuestion, deleteQuestion };

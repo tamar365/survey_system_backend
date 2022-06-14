@@ -1,7 +1,6 @@
 const answer = require("../models/answer");
 
 async function read(id) {
-  console.log("🚀 ~ file: answerController.js ~ line 4 ~ read ~ id", id)
   return await answer.find({idOfSurvey:id});
 }
 
@@ -36,4 +35,5 @@ async function del(id) {
     { new: true }
   );
 }
+
 module.exports = {read, readOne, readOneAndPopulate, create, update, del};

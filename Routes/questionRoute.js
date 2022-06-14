@@ -39,6 +39,4 @@ router.get('/', authJWT, async (req,res) => {
     };
 });
 
-
-
 module.exports = router;

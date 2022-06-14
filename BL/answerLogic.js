@@ -5,7 +5,7 @@ async function getAnswers(id) {
 }
 
 async function getAnswer(input) {
-  return await answer.readOne(req);
+  return await answer.readOne(input);
 }
 
 async function getAnswersByFilter(input) {
@@ -23,6 +23,5 @@ async function updateAnswer(input) {
 async function deleteAnswer(input) {
   return await answer.del(input);
 }
-
 
 module.exports = { getAnswers, getAnswer, getAnswersByFilter, createAnswer, updateAnswer, deleteAnswer };
