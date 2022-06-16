@@ -12,8 +12,7 @@ router.post("/register", async (req, res) => {
   };
 })
 
-router.post("/login", async (req, res) => {
- 
+router.post("/login", async (req, res) => { 
   try{
     const result = await userLogic.loginUser(req.body)
    
