@@ -1,7 +1,7 @@
 const survey = require("../models/survey");
 
 async function read(filter) {
-  return await survey.find({createBy:filter});
+  return await survey.find({createdBy:filter}); 
 }
 
 async function readTitle(filter) {
