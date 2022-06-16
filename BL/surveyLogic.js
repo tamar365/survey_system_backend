@@ -14,7 +14,7 @@ async function getSurveysByFilter(req) {
 
 async function createSurvey(req,res) {
   const existTitle = await survey.readTitle(req.body.title)
-  if(existTitle) {
+  if(existTitle?.length>0) {
     res.status(400).json({ message: "כותרת הסקר כבר קיימת במערכת. יש לבחור כותרת אחרת." });
   }else{
     const newSurvey = await survey.create(req);

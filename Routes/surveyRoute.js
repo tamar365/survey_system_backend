@@ -4,7 +4,6 @@ const surveyLogic  = require("../BL/surveyLogic");
 const authJWT = require("../Middleware/authentication");
 
 router.post('/newsurvey', authJWT, async (req,res) => {
-   
     try {
         const newSurvey = await surveyLogic.createSurvey(req,res);
         res.send(newSurvey);
