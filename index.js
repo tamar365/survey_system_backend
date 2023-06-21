@@ -14,8 +14,6 @@ const app = express();
 app.use(
   cors({
     origin: "https://survey-services.netlify.app",
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
   })
 );
 app.use(express.json());
